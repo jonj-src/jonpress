@@ -1,8 +1,8 @@
 <?php
 /**
- * XML-RPC protocol support for WordPress
+ * XML-RPC protocol support for JonPress
  *
- * @package WordPress
+ * @package JonPress
  */
 
 /**
@@ -26,8 +26,8 @@ if ( isset( $HTTP_RAW_POST_DATA ) ) {
 	$HTTP_RAW_POST_DATA = trim( $HTTP_RAW_POST_DATA );
 }
 
-/** Include the bootstrap for setting up WordPress environment */
-include( dirname( __FILE__ ) . '/wp-load.php' );
+/** Include the bootstrap for setting up JonPress environment */
+include( dirname( __FILE__ ) . '/jp-load.php' );
 
 if ( isset( $_GET['rsd'] ) ) { // http://cyber.law.harvard.edu/blogs/gems/tech/rsd.html
 	header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
@@ -35,11 +35,11 @@ if ( isset( $_GET['rsd'] ) ) { // http://cyber.law.harvard.edu/blogs/gems/tech/r
 <?php echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>'; ?>
 <rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
 	<service>
-		<engineName>WordPress</engineName>
-		<engineLink>https://wordpress.org/</engineLink>
+		<engineName>JonPress</engineName>
+		<engineLink>https://jonpress.org/</engineLink>
 		<homePageLink><?php bloginfo_rss( 'url' ); ?></homePageLink>
 		<apis>
-			<api name="WordPress" blogID="1" preferred="true" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
+			<api name="JonPress" blogID="1" preferred="true" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
 			<api name="Movable Type" blogID="1" preferred="false" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
 			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
 			<api name="Blogger" blogID="1" preferred="false" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
@@ -60,9 +60,9 @@ if ( isset( $_GET['rsd'] ) ) { // http://cyber.law.harvard.edu/blogs/gems/tech/r
 exit;
 }
 
-include_once( ABSPATH . 'wp-admin/includes/admin.php' );
+include_once( ABSPATH . 'jp-admin/includes/admin.php' );
 include_once( ABSPATH . WPINC . '/class-IXR.php' );
-include_once( ABSPATH . WPINC . '/class-wp-xmlrpc-server.php' );
+include_once( ABSPATH . WPINC . '/class-jp-xmlrpc-server.php' );
 
 /**
  * Posts submitted via the XML-RPC interface get that title
@@ -79,11 +79,11 @@ $post_default_title = '';
  *
  * @param string $class The name of the XML-RPC server class.
  */
-$wp_xmlrpc_server_class = apply_filters( 'wp_xmlrpc_server_class', 'wp_xmlrpc_server' );
-$wp_xmlrpc_server       = new $wp_xmlrpc_server_class;
+$jp_xmlrpc_server_class = apply_filters( 'jp_xmlrpc_server_class', 'jp_xmlrpc_server' );
+$jp_xmlrpc_server       = new $jp_xmlrpc_server_class;
 
 // Fire off the request
-$wp_xmlrpc_server->serve_request();
+$jp_xmlrpc_server->serve_request();
 
 exit;
 

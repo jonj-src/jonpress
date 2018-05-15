@@ -1,4 +1,4 @@
-WordPress - Web publishing software
+JonPress - Web publishing software
 
 Copyright 2011-2018 by the contributors
 
@@ -19,8 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 This program incorporates work covered by the following copyright and
 permission notices:
 
-  b2 is (c) 2001, 2002 Michel Valdrighi - m@tidakada.com -
-  http://tidakada.com
+  b2 is (c) 2001, 2002 Jon Redmond
 
   Wherever third party code has been used, credit has been given in the code's
   comments.
@@ -29,11 +28,11 @@ permission notices:
 
 and
 
-  WordPress - Web publishing software
+  JonPress - Web publishing software
 
   Copyright 2003-2010 by the contributors
 
-  WordPress is released under the GPL
+  JonPress is released under the GPL
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -380,6 +379,6 @@ Public License instead of this License.
 WRITTEN OFFER
 
 The source code for any program binaries or compressed scripts that are
-included with WordPress can be freely obtained at the following URL:
+included with JonPress can be freely obtained at the following URL:
 
-	https://wordpress.org/download/source/
+	https://jonpress.org/download/source/
